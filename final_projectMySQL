@@ -14,7 +14,7 @@ full_name varchar(20),
 email varchar(20) unique,
 gender char(1) check(gender= 'm' or gender= 'f'),
 date_of_birth varchar(15),
-created_at datetime default CURRENT_TIMESTAMP,
+created_at datetime,
 country_code int,
 foreign key(country_code) references countries (code)
 );
@@ -24,7 +24,7 @@ CREATE Table orders(
 id int primary key,
 user_id int ,
 status varchar(6) check(status= 'start' or status= 'finish'),
-created_at datetime default CURRENT_TIMESTAMP,
+created_at datetime,
 foreign key(user_id) references users(id)
 );
 
@@ -42,7 +42,7 @@ id int primary key,
 name varchar(10) not null,
 price int default 0,
 status varchar(10) check(status= 'valid' or status= 'expired') ,
-created_at datetime default CURRENT_TIMESTAMP,
+created_at datetime,
 );
 
 - DML insert -
